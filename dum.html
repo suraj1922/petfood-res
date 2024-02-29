@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+    ">
+    <style>
+        :root {
+            --main-color: orange;
+            --black: rgb(0, 0, 0);
+            --white: #ffffff;
+            --light-color: #666;
+            --ligth-bg: #eee;
+            --border: .2rem solid rgba(0, 0, 0, .1);
+            --box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
+        }
+
+        * {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            text-transform: capitalize;
+            transform: all .2s ease-out;
+        }
+
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            scroll-padding-top: 4rem;
+        }
+
+        ::-webkit-scrollbar {
+            width: 1rem;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: orange;
+            border-radius: 5rem;
+        }
+
+        section {
+            padding: 5rem 9%;
+        }
+
+        .heading {
+            padding-bottom: 2rem;
+            text-align: center;
+            font-size: 3.5rem;
+            color: var(--black);
+        }
+
+        .heading span {
+            color: var(--main-color);
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: .8rem 2.8rem;
+            border-radius: 5rem;
+            border-top-left-radius: 0;
+            border: var(--border);
+            cursor: pointer;
+            background: none;
+            color: var(--black);
+            font-size: 1.7rem;
+            overflow: hidden;
+            z-index: 0;
+            position: relative;
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: var(--black);
+            z-index: -1;
+            transition: .2s linear;
+            clip-path: circle(0% at 0% 5%);
+        }
+
+        .btn:hover::before {
+            clip-path: circle(100%);
+        }
+
+        .btn:hover {
+            color: var(--white);
+        }
+
+        .form-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: .8rem 2.8rem;
+            border-radius: 5rem;
+            border-top-left-radius: 0;
+            border: var(--border);
+            cursor: pointer;
+            background: none;
+            color: var(--black);
+            font-size: 1.7rem;
+            overflow: hidden;
+            z-index: 0;
+            position: relative;
+            width: 100%;
+            text-align: center;
+        }
+
+        .form-btn:hover {
+            background-color: var(--black);
+            color: var(--white);
+        }
+
+        body {
+            height: 300rem;
+        }
+
+        .header {
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2rem 9%;
+            box-shadow: var(--box-shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+
+            transition: transform 0.3s ease;
+        }
+
+        .header.active {
+            transform: translateY(0rem);
+        }
+
+        .header .logo {
+            font-size: 2.5rem;
+            color: var(--black);
+            font-weight: bolder;
+        }
+
+        .header i {
+            color: orange;
+        }
+
+
+        .header .navbar a {
+            margin: 0 1rem;
+            font-size: 1.7rem;
+            color: var(--light-color);
+        }
+
+        .navbar a:hover {
+            color: orange;
+        }
+
+        .header .icons a,
+        .header .icons div {
+            font-size: 2.5rem;
+            margin-left: 1.5rem;
+            color: var(--black);
+            cursor: pointer;
+        }
+
+        .header .icons a,
+        .header .icons div:hover {
+            columns: orange;
+        }
+
+        .login-form {
+            position: absolute;
+            top: 15%;
+            right: 2rem;
+            width: 36rem;
+            border-radius: 1rem;
+            background: var(--white);
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+            z-index: 100;
+            display: none;
+        }
+
+        .login-form.active{
+            display: block;
+            animation: fadeIn .4s linear;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                transform: translateY(4rem);
+                opacity: 0;
+            }
+        }
+
+        .login-form h3 {
+            color: var(--black);
+            font-size: 2.5rem;
+            padding-bottom: .5rem;
+        }
+
+        .login-form .box {
+            width: 100%;
+            border-bottom: var(--border);
+            border-width: .1rem;
+            padding: 1.5rem 0;
+            font-size: 1.6rem;
+            color: var(--black);
+            text-transform: none;
+            margin: 1rem 0;
+        }
+
+        .login-form .remember {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 0;
+        }
+
+        .login-form .label {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--light-color);
+        }
+
+        .links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .links a {
+            font-size: 1.4rem;
+            color: var(--main-color);
+        }
+
+        .links a:hover {
+            color: var(--black);
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header class="header">
+        <a href="#" class="logo"><i class="fas fa-paw"></i>petke</a>
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#services">services</a>
+            <a href="#about">about</a>
+            <a href="#portfolio">protfolio</a>
+            <a href="#price">price</a>
+            <a href="review">review</a>
+            <a href="contact">contact</a>
+        </nav>
+        <div class="icons">
+            <div class="fas fa-bars" id="menu-btn"></div>
+            <a href="#" class="fas fa-shopping-cart"></a>
+            <div class="fas fa-user" id="login-btn"></div>
+        </div>
+    </header>
+    <!---header section end-->
+    <form action="" class="login-form">
+        <h3> Sign in </h3>
+        <input type="email" name="" placeholder="enter your email" id="" class="box">
+        <input type="password" name="" placeholder="enter your password" id="" class="box">
+        <div class="remember">
+            <input type="checkbox" name="" id="remember-me">
+            <label for="remember-me">remember me</label>
+        </div>
+        <input type="submit" value="sign in now" class="form-btn ">
+        <div class="links">
+            <a href="#">forget password</a>
+            <a href="#">sign in</a>
+        </div>
+    </form>
+    <script>
+        let loginform = document.querySelector('.header .login-form');
+        document.querySelector('#login-btn').onclick = () => {
+            loginform.classList.toggle('active');
+            navbar.classList.remove('active');
+        }
+
+    </script>
+</body>
+
+</html>
