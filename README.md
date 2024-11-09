@@ -22,7 +22,7 @@ Open the index.html file in your browser to view the website.
 
 # 🌐 Live Demo
 Check out the live demo of the Pet Food Website hosted :
-
+https://suraj1922.github.io/petfood-res/
 
 # 📝 Contributing
 This project was created for practice, but if you want to suggest improvements or contribute, feel free to fork the repository and open a pull request!
